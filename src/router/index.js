@@ -1,5 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import StudyNowView from '../views/StudyNowView.vue'
+import StudyPlanView from '../views/StudyPlanView.vue'
+import PeerToPeerView from '../views/PeerToPeerView.vue'
+import RewardsView from '../views/RewardsView.vue'
+import ProgressView from '../views/ProgressView.vue'
+import DiscussionView from '../views/DiscussionView.vue'
 
 const routes = [
   {
@@ -8,12 +14,44 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/studynow',
+    name: 'studynow',
+    component: StudyNowView
+  },
+  {
+    path: '/studyplan',
+    name: 'studyplan',
+    component: StudyPlanView
+  },
+  {
+    path: '/peertopeer',
+    name: 'peertopeer',
+    component: PeerToPeerView
+  },
+  {
+    path: '/rewards',
+    name: 'rewards',
+    component: RewardsView
+  },
+  {
+    path: '/progress',
+    name: 'progress',
+    component: ProgressView
+  },
+  {
+    path: '/discussion',
+    name: 'discussion',
+    component: DiscussionView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignupView
   }
 ]
 
