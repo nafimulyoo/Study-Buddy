@@ -5,6 +5,7 @@
             <div class="p-4">
                 <!-- Logo -->
                 <div class="mb-8 flex items-center">
+                    <!-- go to main page -->
                     <Link :href="route('dashboard')">
                         <ApplicationLogo
                             class="block h-9 w-auto fill-current text-white"
