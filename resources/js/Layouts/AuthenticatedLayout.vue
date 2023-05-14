@@ -49,9 +49,9 @@
                     
                     <NavLink class="flex flex-col items-center" :href="route('study-now')" :active="route().current('study-now')">
                         <a :href="route('study-now')" class="flex flex-col items-center">
-                            <div class="h-20 w-20 mt-3 bg-primary rounded-full flex items-center justify-center">
-                                <PlayIcon class="h-14 w-14 text-white text-white" />
-                            </div>
+                                <div class="h-20 w-20 mt-3 bg-primary rounded-full flex items-center justify-center">
+                                    <PlayIcon class="h-14 w-14 text-white text-white" />
+                                </div>
                             <span class="text-white">Study Now</span>
                         </a>
                     </NavLink>
@@ -59,8 +59,10 @@
             </div>
             <div class="p-4 mb-4">
                 <NavLink class="flex flex-col items-center" :href="route('settings')" :active="route().current('settings')">
-                    <CogIcon class="h-14 w-14 mb-1 text-white" />
-                    <span class="text-white">Settings</span>
+                    <a :href="route('settings')">
+                        <CogIcon class="h-14 w-14 mb-1 text-white" />
+                        <span class="text-white">Settings</span>
+                    </a>
                 </NavLink>
             </div>
         </nav>

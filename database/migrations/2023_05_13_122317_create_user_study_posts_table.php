@@ -12,6 +12,7 @@ class CreateUserStudyPostsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->text('subject');
             $table->text('post_content');
             $table->unsignedInteger('likes')->default(0);
             $table->unsignedInteger('replies')->default(0);

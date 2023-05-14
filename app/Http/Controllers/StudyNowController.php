@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\StudyPost;
 
 class StudyNowController extends Controller
 {
@@ -25,5 +26,17 @@ class StudyNowController extends Controller
             'studyPosts' => $studyPosts,
             'studySessions' => $studySessions
         ]);
+    }
+
+    public function store()
+    {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'timestamp' => 'required|date',
+        ]);
+
+        $task->update($validated);
+
+        return response()->json($task);
     }
 }

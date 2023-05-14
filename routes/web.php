@@ -23,25 +23,37 @@ use App\Http\Controllers\{
     ProgressController,
     DiscussionController,
     StudyNowController,
-    SettingsController
+    SettingsController,
+    ToDoListController
 };
 
 Route::get('/dashboard', [HomeController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/study-plan', [StudyPlanController::class, 'index'])->name('study-plan');
-    Route::get('/friends', [FriendsController::class, 'index'])->name('friends');
-    Route::get('/progress', [ProgressController::class, 'index'])->name('progress');
-    Route::get('/discussion', [DiscussionController::class, 'index'])->name('discussion');
+    Route::get('/study-plan', [ToDoListController::class, 'index'])->name('study-plan');
+    Route::post('/study-plan', [ToDoListController::class, 'store'])->name('study-plan.store');
     Route::get('/study-now', [StudyNowController::class, 'index'])->name('study-now');
-    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+    Route::delete('/study-plan/{task}', [ToDoListController::class, 'destroy'])->name('study-plan.destroy');
+    Route::post('/study-now', [StudyNowController::class, 'store'])->name('study-now.store');
+    Route::get('/settings', function () {
+        return Inertia::render('ComingSoon');
+    })->name('settings');
+    Route::get('/progress', function () {
+        return Inertia::render('ComingSoon');
+    })->name('progress');
+    Route::get('/friends', function () {
+        return Inertia::render('ComingSoon');
+    })->name('friends');
+    Route::get('/disccusion', function () {
+        return Inertia::render('ComingSoon');
+    })->name('discussion');
 });
 
 require __DIR__.'/auth.php';
